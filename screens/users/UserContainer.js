@@ -5,7 +5,7 @@ import {
     ActivityIndicator,
     FlatList,
     ScrollView,
-    Dimensions
+    Dimensions, TouchableOpacity
 } from "react-native";
 import {
     Container,
@@ -19,7 +19,7 @@ import {
     StatusBar,
     Text,
     Center,
-    Button
+    Button, VStack, Spacer
 } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {UserContext, UsersContext} from "../../context/UsersContext";
@@ -68,9 +68,37 @@ const UserContainer = () => {
 
 
             </View>
+            <FlatList data={users} renderItem={({
+                                                   item
+                                               }) =>
 
 
-            <UserList/>
+                <Box borderBottomWidth="1" _dark={{
+                borderColor: "muted.50"
+            }} borderColor="muted.800" pl={["0", "4"]} pr={["0", "5"]} py="2">
+                <TouchableOpacity onPress={() => setCurrentUser()}>
+                <HStack space={[2, 3]} justifyContent="space-between">
+
+
+
+                    <VStack onPress={() => setCurrentUser()}>
+                        <Text _dark={{
+                            color: "warmGray.50"
+                        }} color="coolGray.800" bold>
+                            {item.username}
+                        </Text>
+                        <Text color="coolGray.600" _dark={{
+                            color: "warmGray.200"
+                        }}>
+                            {item.email}
+                        </Text>
+                    </VStack>
+                    <Spacer />
+                </HStack>
+                    </TouchableOpacity>
+            </Box>} keyExtractor={item => item.id} />
+
+
         </>
     )
 }
