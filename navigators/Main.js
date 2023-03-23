@@ -33,6 +33,7 @@ const Main = () => {
             />
             <Tab.Screen name={"Parties"} component={PartyContainer}
                         options={{
+                            headerShown: false,
                             tabBarLabel: 'Parties',
                             tabBarIcon: ({ color, size }) => (
                                 <MaterialCommunityIcons name="party-popper" color={color} size={size} />

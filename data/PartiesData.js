@@ -1,6 +1,5 @@
 
 
-const { v4: uuidv4 } = require('uuid');
 
 const parties = [
     {
@@ -384,4 +383,4 @@ const parties = [
     }
 ];
 
-module.exports = items;
+module.exports = parties;

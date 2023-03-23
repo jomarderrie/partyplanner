@@ -3,11 +3,15 @@ import {NavigationContainer} from "@react-navigation/native";
 import Header from "./screens/Header";
 import Main from "./navigators/Main";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
+import {PartysContext} from "./context/PartysContext";
 
 export default function App() {
   return (
     <>
       <UsersContext>
+          <PartysContext>
+
+
           <NativeBaseProvider>
               <NavigationContainer>
             <Header/>
@@ -16,6 +20,7 @@ export default function App() {
 
               </NavigationContainer>
           </NativeBaseProvider>
+          </PartysContext>
       </UsersContext>
     </>
   );
