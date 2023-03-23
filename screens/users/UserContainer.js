@@ -1,4 +1,4 @@
-import React, { useState, } from "react";
+import React, {useContext, useState,} from "react";
 import {
     View,
     StyleSheet,
@@ -22,10 +22,14 @@ import {
     Button
 } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import {UserContext, UsersContext} from "../../context/UsersContext";
+import UserList from "./UserList";
 
 let { height } = Dimensions.get('window')
 
 const UserContainer = () => {
+    const {user, users,setCurrentUser} = useContext(UserContext);
+
     const [focus, setFocus] = useState(false);
     const onBlur = () => {
         setFocus(false);
@@ -36,7 +40,9 @@ const UserContainer = () => {
     return(
         <>
             <Center>
-
+            <Text>
+                Logged in as user: {user}
+            </Text>
 
             <HStack bg="violet.800" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%" maxW="350">
                 <HStack alignItems="center">
@@ -54,15 +60,17 @@ const UserContainer = () => {
             </Center>
             <View>
 
-                <Button variant="ghost" colorScheme="success"><Text>
+                <Button variant="ghost" colorScheme="success" onPress={() => setCurrentUser()}>
+                    <Text>
                     Success
-
-
                     </Text>
-
                 </Button>
 
+
             </View>
+
+
+            <UserList/>
         </>
     )
 }
