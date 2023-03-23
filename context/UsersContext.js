@@ -7,9 +7,11 @@ export function UsersContext({children}){
     const [users, setUsers] = useState(userData);
     // let users = userData;
 
-    const setCurrentUser = () => {
-        setUser("Yup")
-        console.log("Yup")
+    const setCurrentUser = (userId) => {
+        let foundUser = users.find((user) => {
+            return user.id === userId
+        })
+        setUser(foundUser.username)
     }
     return (
         <UserContext.Provider value={{user,setCurrentUser, users}}>

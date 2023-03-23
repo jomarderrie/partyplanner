@@ -76,7 +76,7 @@ const UserContainer = () => {
                 <Box borderBottomWidth="1" _dark={{
                 borderColor: "muted.50"
             }} borderColor="muted.800" pl={["0", "4"]} pr={["0", "5"]} py="2">
-                <TouchableOpacity onPress={() => setCurrentUser()}>
+                <TouchableOpacity onPress={() => setCurrentUser(item.id)}>
                 <HStack space={[2, 3]} justifyContent="space-between">
 
 

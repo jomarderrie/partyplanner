@@ -13,6 +13,14 @@ let { height } = Dimensions.get('window')
 
 const PartyContainer = (props) => {
     return(
+        <Container>
+
+        </Container>
+    )
+}
+
+const Loader = () => {
+    return(
         <Container style={[styles.center, { backgroundColor: "#f2f2f2" }]}>
             <ActivityIndicator size="large" color="red" />
         </Container>

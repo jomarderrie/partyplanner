@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29b00c09-8c4d-4158-9110-db97a62d4c54" name="Changes" comment="userlist">
+    <list default="true" id="29b00c09-8c4d-4158-9110-db97a62d4c54" name="Changes" comment="touchable fix">
+      <change afterPath="$PROJECT_DIR$/data/PartiesData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screens/parties/PartyList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/context/RoomContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/PartyContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/context/UsersContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/UsersContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/users/UserContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/users/UserContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/users/UserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/users/UserList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +97,7 @@
       <updated>1679394326367</updated>
       <workItem from="1679394327829" duration="2440000" />
       <workItem from="1679396823613" duration="14328000" />
-      <workItem from="1679420413371" duration="12532000" />
+      <workItem from="1679420413371" duration="14930000" />
     </task>
     <task id="LOCAL-00001" summary="navbar working">
       <created>1679421921066</created>
@@ -117,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679534058358</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="touchable fix">
+      <created>1679536699309</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679536699309</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +148,7 @@
     <MESSAGE value="navbar working" />
     <MESSAGE value="button" />
     <MESSAGE value="userlist" />
-    <option name="LAST_COMMIT_MESSAGE" value="userlist" />
+    <MESSAGE value="touchable fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="touchable fix" />
   </component>
 </project>
