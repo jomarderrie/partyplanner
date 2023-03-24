@@ -12,8 +12,8 @@ import {
 var { width } = Dimensions.get("window");
 
 const PartyCard = (props) => {
-    const { name, price, image, countInStock } = props;
-
+    const { title,party_start, party_end } = props;
+    const image = null;
     return (
         <View style={styles.container}>
             <Image
@@ -24,14 +24,13 @@ const PartyCard = (props) => {
             />
             <View style={styles.card}/>
             <Text style={styles.title}>
-                name
-                {/*{name.length > 15 ? name.substring(0, 15 - 3)*/}
-                {/*    + '...' : name*/}
-                {/*}*/}
+                {title.length > 15 ? title.substring(0, 15 - 3)
+                    + '...' : title
+                }
             </Text>
-            <Text style={styles.price}>25</Text>
+            <Text style={styles.price}>{party_end}</Text>
 
-            <Text style={{ marginTop: 20 }}>Currently Unavailable</Text>}
+            <Text style={{ marginTop: 20 }}>Currently Unavailable</Text>
         </View>
     )
 }

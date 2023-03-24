@@ -13,8 +13,7 @@ import {UserContext} from "../../context/UsersContext";
 import {PartyContext} from "../../context/PartysContext";
 import PartyList from "./PartyList";
 
-let { height } = Dimensions.get('window')
-
+let { height,width } = Dimensions.get('window')
 const PartyContainer = (props) => {
     const {user} = useContext(UserContext);
     const {partys} = useContext(PartyContext)
@@ -40,22 +39,23 @@ const PartyContainer = (props) => {
                     <IconButton icon={<Icon as={MaterialIcons} name="more-vert" size="sm" color="white" />} />
                 </HStack>
             </HStack>
-            <Container>
+            {/*<Container style={{width:'100%'}}>*/}
                 <ScrollView>
-                    {/*<View style={styles.listContainer}>*/}
-                    {/*    {*/}
-                    {/*        parties.map((item) => {*/}
-                    {/*            return (*/}
-                    {/*                <PartyList*/}
-                    {/*                    key={item.id}*/}
-                    {/*                    item={item}*/}
-                    {/*                    />*/}
-                    {/*            )*/}
-                    {/*        })*/}
-                    {/*    }*/}
-                    {/*</View>*/}
+                    <View style={styles.listContainer}>
+                        {
+                            partys.map((item) => {
+                                return (
+                                    <PartyList
+                                        navigation={props.navigation}
+                                        key={item.id}
+                                        item={item}
+                                        />
+                                )
+                            })
+                        }
+                    </View>
                 </ScrollView>
-            </Container>
+            {/*</Container>*/}
         </>
     )
 }
@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
         backgroundColor: "gainsboro",
     },
     listContainer: {
-        height: height,
         flex: 1,
         flexDirection: "row",
         alignItems: "flex-start",

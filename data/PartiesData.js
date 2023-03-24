@@ -5,7 +5,7 @@ const parties = [
     {
         id: 1,
         title: 'Dillon Boy',
-        auction_end: '2020-10-01',
+        party_end: '2020-10-01',
         bids:[
             {
                 bidder: 'henk',
@@ -24,7 +24,8 @@ const parties = [
     {
         id: 2,
         title: 'eye',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk',
@@ -48,7 +49,7 @@ const parties = [
     {
         id: 3,
         title: 'The human eye2',
-        auction_end: '2020-11-09',
+        party_end: '2020-11-09',
         bids:[
             {
                 bidder: 'henk3',
@@ -72,7 +73,8 @@ const parties = [
     {
         id: 4,
         title: 'The human eye3',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk',
@@ -96,7 +98,8 @@ const parties = [
     {
         id: 5,
         title: 'jungle demon',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk',
@@ -120,7 +123,8 @@ const parties = [
     {
         id: 6,
         title: 'socrates',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk3',
@@ -144,7 +148,8 @@ const parties = [
     {
         id: 7,
         title: 'nietszche',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk',
@@ -168,7 +173,8 @@ const parties = [
     {
         id:8,
         title: 'locke',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk',
@@ -192,7 +198,8 @@ const parties = [
     {
         id: 9,
         title: 'The human eye5',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk',
@@ -216,7 +223,8 @@ const parties = [
     {
         id: 10,
         title: 'socrates',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk3',
@@ -240,7 +248,8 @@ const parties = [
     {
         id: 11,
         title: 'socrates',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk3',
@@ -264,7 +273,8 @@ const parties = [
     {
         id: 12,
         title: 'socrates',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk3',
@@ -288,7 +298,8 @@ const parties = [
     {
         id:13,
         title: 'socrates',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk3',
@@ -312,7 +323,8 @@ const parties = [
     {
         id: 14,
         title: 'socrates',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk3',
@@ -336,7 +348,8 @@ const parties = [
     {
         id:15,
         title: 'socrates',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk3',
@@ -360,7 +373,8 @@ const parties = [
     {
         id: 16,
         title: 'socrates',
-        auction_end: '2020-12-09',
+        party_end: '2020-12-09',
+        party_start: '2023-12-09',
         bids:[
             {
                 bidder: 'henk3',
