@@ -1,12 +1,13 @@
-import React, {useContext, useState,} from "react";
+import React, {useContext, useEffect, useState,} from "react";
 import {
     View,
     StyleSheet,
     ActivityIndicator,
     FlatList,
     ScrollView,
-    Dimensions, TouchableOpacity, Image
+    Dimensions, TouchableOpacity, Image, PermissionsAndroid
 } from "react-native";
+import Contacts from "react-native-contacts";
 import {
     Container,
     Header,
@@ -27,6 +28,34 @@ import StyledButton from "../../styles/StyledButton";
 
 const SingleParty = (props) => {
     const image = null;
+
+    const selectContact = () => {
+        // PermissionsAndroid.request(
+        //     PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
+        //     {
+        //         'title': 'Contacts',
+        //         'message': 'This app would like to view your contacts.',
+        //         'buttonPositive': 'Please accept bare mortal'
+        //     }
+        // )
+        console.log(Contacts)
+        //     .then
+        // Contacts.getAll({}).then(contacts => {
+        //     console.log(contacts)
+        //     // contacts returned
+        // })
+        //     (Contacts.openContactForm()
+        //         .then((contacts) => {
+        //             // work with contacts
+        //             console.log(contacts)
+        //         })
+        //         .catch((e) => {
+        //             console.log(e)
+        //         }))
+    }
+    useEffect(() => {
+
+    }, []);
     return(
         <>
             <Container style={styles.container}>
@@ -54,6 +83,10 @@ const SingleParty = (props) => {
                         </View>
                         <Text>yup</Text>
                     </View>
+                    <Button
+                        title={"Select contact"}
+                        onPress={() => selectContact()}
+                        />
                 </ScrollView>
             </Container>
                 <VStack style={styles.bottomContainer} w={"100%"} justifyContent="space-between">

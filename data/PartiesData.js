@@ -26,6 +26,7 @@ const parties = [
         title: 'eye',
         party_end: '2020-12-09',
         party_start: '2023-12-09',
+
         bids:[
             {
                 bidder: 'henk',
@@ -396,5 +397,11 @@ const parties = [
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
     }
 ];
+
+// id
+// title
+// start date
+// end date
+// createdBy
 
 module.exports = parties;

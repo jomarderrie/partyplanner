@@ -43,7 +43,7 @@ target 'partyplanner' do
 
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
   use_frameworks! :linkage => ENV['USE_FRAMEWORKS'].to_sym if ENV['USE_FRAMEWORKS']
-
+  pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
   # Flags change depending on the env values.
   flags = get_default_flags()
 
@@ -78,7 +78,9 @@ target 'partyplanner' do
       end
     end
   end
-
+#   do
+     pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
+#   end
   post_integrate do |installer|
     begin
       expo_patch_react_imports!(installer)
