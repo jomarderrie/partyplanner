@@ -1,35 +1,15 @@
 import React, {useContext, useEffect, useState,} from "react";
-import {
-    View,
-    StyleSheet,
-    ActivityIndicator,
-    FlatList,
-    ScrollView,
-    Dimensions, TouchableOpacity, Image, PermissionsAndroid
-} from "react-native";
-import Contacts from "react-native-contacts";
-import {
-    Container,
-    Header,
-    Icon,
-    Item,
-    Input,
-    IconButton,
-    HStack,
-    Box,
-    StatusBar,
-    Text,
-    Center,
-    Button, VStack, Spacer, Heading
-} from "native-base";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import {UserContext, UsersContext} from "../../context/UsersContext";
+import {Image, ScrollView, StyleSheet, View} from "react-native";
+import {Button, Container, Heading, HStack, Text, VStack} from "native-base";
+import {selectContact} from 'react-native-select-contact';
 import StyledButton from "../../styles/StyledButton";
+import {PartyContext} from "../../context/PartysContext";
 
 const SingleParty = (props) => {
     const image = null;
-
-    const selectContact = () => {
+    const {partys, setParties} = useContext(PartyContext)
+    const [party,setParty ] = useState(props.route.params.item)
+    const selectContact2 = () => {
         // PermissionsAndroid.request(
         //     PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
         //     {
@@ -38,11 +18,11 @@ const SingleParty = (props) => {
         //         'buttonPositive': 'Please accept bare mortal'
         //     }
         // )
-        console.log(Contacts)
+        // console.warn(Contacts)
         //     .then
-        // Contacts.getAll({}).then(contacts => {
-        //     console.log(contacts)
-        //     // contacts returned
+        // Contacts.getAll().then(contacts => {
+            // console.warn(contacts)
+            // contacts returned
         // })
         //     (Contacts.openContactForm()
         //         .then((contacts) => {
@@ -53,13 +33,61 @@ const SingleParty = (props) => {
         //             console.log(e)
         //         }))
     }
-    useEffect(() => {
 
-    }, []);
+    const addContact = () => {
+        return selectContact()
+            .then(selection => {
+                if (!selection) {
+                    return null;
+                }
+                console.log(selection)
+                let {name, recordId} = selection
+                // console.log(party, " parties")
+
+                // console.log(partys, " p123 ");
+                let partyindex = partys.findIndex(partyItem => party.title === partyItem.title)
+                let selectedContact = {
+                    "name": name,
+                    "recordID": recordId
+                }
+               //  setParty((parties) => {
+               // return      parties[partyindex].contacts  = [
+               //         selectedContact ,...parties[partyindex].contacts ]
+               //  })
+
+                setParties((parties) => {
+                    // const updatedParties = [...parties]; // create a copy of the original array
+                    return parties.map(party2 => {
+                        if (party.title === party2.title) {
+                            return {
+                                ...party2,
+                                contacts: [selectedContact, ...party2.contacts],
+                            };
+                        }
+                        return party2;
+                    });// return the updated array of parties
+                });
+
+
+                // console.log(selection)
+                // let { contact, selectedPhone } = selection;
+                // console.log(`Selected ${selectedPhone.type} phone number ${selectedPhone.number} from ${contact.name}`);
+                // return selectedPhone.number;
+            });
+    }
+    useEffect(() => {
+        let partyindex = partys.findIndex(partyItem => party.title === partyItem.title)
+        setParty(partys[partyindex])
+        console.log(JSON.stringify(partys[partyindex]) + " oek")
+        //current item
+        // setParty(props.route.params.item)
+        // console.log(props.route.params)
+        // console.log(props.route.params.item)
+    }, [partys]);
     return(
         <>
             <Container style={styles.container}>
-                <ScrollView style={{ marginBottom: 80, padding: 5 }}>
+                <ScrollView style={{ marginBottom: 20, padding: 5 }}>
                     <View>
                         <Image
                             source={{
@@ -85,8 +113,9 @@ const SingleParty = (props) => {
                     </View>
                     <Button
                         title={"Select contact"}
-                        onPress={() => selectContact()}
+                        onPress={() => addContact()}
                         />
+
                 </ScrollView>
             </Container>
                 <VStack style={styles.bottomContainer} w={"100%"} justifyContent="space-between">
@@ -111,6 +140,8 @@ const SingleParty = (props) => {
                         <Text style={{ color: 'white'}}>Add</Text>
                     </HStack>
                 </VStack>
+
+
                 {/*<View style={styles.bottomContainer}>*/}
                 {/*    <Left>*/}
                 {/*        <Text style={styles.price}>asd</Text>*/}
@@ -156,18 +187,18 @@ const styles = StyleSheet.create({
         height: 250
     },
     contentContainer: {
-        marginTop: 20,
+        marginTop: 5,
         justifyContent: 'center',
         alignItems: 'center'
     },
     contentHeader: {
         fontWeight: 'bold',
-        marginBottom: 20
+        marginBottom: 5
     },
     contentText: {
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: 20
+        marginBottom: 5
     },
     bottomContainer: {
         flexDirection: 'row',
@@ -178,16 +209,16 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 24,
-        margin: 20,
+        margin: 5,
         color: 'red'
     },
     availabilityContainer: {
-        marginBottom: 20,
+        marginBottom: 5,
         alignItems: "center"
     },
     availability: {
         flexDirection: 'row',
-        marginBottom: 10,
+        marginBottom:5,
     }
 })
 

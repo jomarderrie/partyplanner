@@ -15,6 +15,8 @@ const parties = [
             }
 
         ],
+        contacts:[],
+
         img: 'public/auction1.jpg',
         location: 'utrecht',
         technique: 'Bronze',
@@ -41,6 +43,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction3.jpg',
         location: 'utrecht',
         technique: 'digital',
@@ -65,6 +68,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction3.jpg',
         location: 'Deventer',
         technique: 'Bronze',
@@ -90,6 +94,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -115,6 +120,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -140,6 +146,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -165,6 +172,7 @@ const parties = [
                 amount: 30
             },
         ],
+        contacts:[],
         img: 'public/auction7.jpg',
         location: 'Deventer',
         technique: 'Bronze',
@@ -190,6 +198,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction8.jpg',
         location: 'Deventer',
         technique: 'digital',
@@ -215,6 +224,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction9.jpg',
         location: 'Deventer',
         technique: 'Metal',
@@ -240,6 +250,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -265,6 +276,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -290,6 +302,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -315,6 +328,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -340,6 +354,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -365,6 +380,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',
@@ -390,6 +406,7 @@ const parties = [
                 date: '2020-04-09'
             },
         ],
+        contacts:[],
         img: 'public/auction4.png',
         location: 'Deventer',
         technique: 'Bronze',

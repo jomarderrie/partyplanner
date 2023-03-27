@@ -6,6 +6,10 @@ export function PartysContext({children}){
     const [partys, setParties] = useState(parties);
     // let users = userData;
 
+    const addParty=() => {
+
+    }
+
 
     return (
         <PartyContext.Provider value={{partys, setParties}}>
