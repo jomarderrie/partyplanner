@@ -23,20 +23,16 @@ const PartyContainer = (props) => {
         // console.log(partys)
     }, []);
     return(
-        // <Container>
         <>
-
-            <HStack bg="violet.800" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%" alignSelf="stretch" flexDirection={"row"}>
+            <HStack  bg="violet.800" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%" alignSelf="stretch" flexDirection={"row"}>
                 <HStack alignItems="center">
-                    <IconButton icon={<Icon size="sm" as={MaterialIcons} name="menu" color="white" />} />
                     <Text color="white" fontSize="20" fontWeight="bold">
-                        Home
+                        Upcoming partiesize
                     </Text>
                 </HStack>
                 <HStack>
-                    <IconButton icon={<Icon as={MaterialIcons} name="favorite" size="sm" color="white" />} />
-                    <IconButton icon={<Icon as={MaterialIcons} name="search" size="sm" color="white" />} />
-                    <IconButton icon={<Icon as={MaterialIcons} name="more-vert" size="sm" color="white" />} />
+                    <IconButton icon={<Icon as={MaterialIcons} name="add" size={30} color="white" onPress={() =>props.navigation.navigate("Add new party") }/>} />
+                    <IconButton icon={<Icon as={MaterialIcons} name="search" size={30} color="white"  />} />
                 </HStack>
             </HStack>
             {/*<Container style={{width:'100%'}}>*/}
