@@ -1,13 +1,15 @@
 import React, {useContext, useEffect, useState,} from "react";
-import {Image, ScrollView, StyleSheet, View} from "react-native";
-import {Button, Container, Heading, HStack, Text, VStack} from "native-base";
+import {FlatList, Image, ScrollView, StyleSheet, TouchableOpacity, View} from "react-native";
+import {Box, Button, Container, Heading, HStack, Spacer, Text, VStack} from "native-base";
 import {selectContact} from 'react-native-select-contact';
 import StyledButton from "../../styles/StyledButton";
 import {PartyContext} from "../../context/PartysContext";
+import {UserContext} from "../../context/UsersContext";
 
 const SingleParty = (props) => {
     const image = null;
     const {partys, setParties} = useContext(PartyContext)
+    const {user, users,setCurrentUser} = useContext(UserContext);
     const [party,setParty ] = useState(props.route.params.item)
     const selectContact2 = () => {
         // PermissionsAndroid.request(
@@ -76,6 +78,7 @@ const SingleParty = (props) => {
             });
     }
     useEffect(() => {
+        console.log(users, "Users123")
         let partyindex = partys.findIndex(partyItem => party.title === partyItem.title)
         setParty(partys[partyindex])
         console.log(JSON.stringify(partys[partyindex]) + " oek")
@@ -83,11 +86,11 @@ const SingleParty = (props) => {
         // setParty(props.route.params.item)
         // console.log(props.route.params)
         // console.log(props.route.params.item)
-    }, [partys]);
+    }, [partys, []]);
     return(
         <>
             <Container style={styles.container}>
-                <ScrollView style={{ marginBottom: 20, padding: 5 }}>
+                <ScrollView style={{ paddingBottom:200,  width: '100%' }}>
                     <View>
                         <Image
                             source={{
@@ -95,30 +98,84 @@ const SingleParty = (props) => {
                                     : 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'
                             }}
                             resizeMode="contain"
-                            style={styles.image}
+                            style={styles.image }
                         />
                     </View>
                     <View style={styles.contentContainer}>
-                        <Heading size='xl' style={styles.contentHeader}>yup</Heading>
-                        <Text style={styles.contentText}>yup</Text>
+                        <Heading size='xl' style={styles.contentHeader}>{party.title}</Heading>
                     </View>
-                    <View style={styles.availabilityContainer}>
-                        <View style={styles.availability}>
-                            <Text style={{ marginRight: 10 }}>
-                                Availability: yup
-                            </Text>
-                            {/*yup*/}
-                        </View>
-                        <Text>yup</Text>
-                    </View>
+
                     <Button
                         title={"Select contact"}
                         onPress={() => addContact()}
                         />
-
                 </ScrollView>
+                <FlatList style={{width:"100%"}} data={users} renderItem={({
+                                                                                 item
+                                                                             }) =>
+
+
+                    <Box borderBottomWidth="1" _dark={{
+                        borderColor: "muted.50"
+                    }} borderColor="muted.800" pl={["0", "4"]} pr={["0", "5"]} py="2">
+                        <TouchableOpacity onPress={() => setCurrentUser(item.id)}>
+                            <HStack space={[2, 3]} justifyContent="space-between">
+                                <VStack  style={{  padding: 16 }}>
+                                    <Text _dark={{
+                                        color: "warmGray.50"
+                                    }} color="coolGray.800" bold>
+                                        {item.username}
+                                    </Text>
+                                    <Text color="coolGray.600" _dark={{
+                                        color: "warmGray.200"
+                                    }}>
+                                        {item.email}
+                                    </Text>
+                                </VStack>
+                                <Spacer />
+                            </HStack>
+                        </TouchableOpacity>
+                    </Box>} keyExtractor={item => item.id} />
+
             </Container>
-                <VStack style={styles.bottomContainer} w={"100%"} justifyContent="space-between">
+
+            {/*<Container style={styles.container}>*/}
+            {/*<FlatList  data={users} renderItem={({*/}
+            {/*                                         item*/}
+            {/*                                     }) =>*/}
+
+
+            {/*    <Box borderBottomWidth="1" _dark={{*/}
+            {/*        borderColor: "muted.50"*/}
+            {/*    }} borderColor="muted.800" pl={["0", "4"]} pr={["0", "5"]} py="2">*/}
+            {/*        <TouchableOpacity onPress={() => setCurrentUser(item.id)}>*/}
+            {/*            <HStack space={[2, 3]} justifyContent="space-between">*/}
+
+
+
+            {/*                <VStack  style={{  padding: 16 }}>*/}
+            {/*                    <Text _dark={{*/}
+            {/*                        color: "warmGray.50"*/}
+            {/*                    }} color="coolGray.800" bold>*/}
+            {/*                        {item.username}*/}
+            {/*                    </Text>*/}
+            {/*                    <Text color="coolGray.600" _dark={{*/}
+            {/*                        color: "warmGray.200"*/}
+            {/*                    }}>*/}
+            {/*                        {item.email}*/}
+            {/*                    </Text>*/}
+            {/*                </VStack>*/}
+            {/*                <Spacer />*/}
+            {/*            </HStack>*/}
+            {/*        </TouchableOpacity>*/}
+            {/*    </Box>} keyExtractor={item => item.id} />*/}
+            {/*</Container>*/}
+
+
+
+
+
+            <VStack style={styles.bottomContainer} w={"100%"} justifyContent="space-between">
                     <HStack >
                          <Text style={styles.price}>asd</Text>
                     </HStack>
@@ -175,7 +232,9 @@ const SingleParty = (props) => {
 const styles = StyleSheet.create({
     container: {
         position: 'relative',
-        height: '100%'
+        height: '100%',
+        alignSelf: "stretch",
+        padding: 16
     },
     imageContainer: {
         backgroundColor: 'white',
@@ -184,7 +243,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 250
+        height: 200
     },
     contentContainer: {
         marginTop: 5,
