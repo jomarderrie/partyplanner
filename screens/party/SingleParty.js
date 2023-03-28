@@ -78,10 +78,10 @@ const SingleParty = (props) => {
             });
     }
     useEffect(() => {
-        console.log(users, "Users123")
+        // console.log(users, "Users123")
         let partyindex = partys.findIndex(partyItem => party.title === partyItem.title)
         setParty(partys[partyindex])
-        console.log(JSON.stringify(partys[partyindex]) + " oek")
+        // console.log(JSON.stringify(partys[partyindex]) + " oek")
         //current item
         // setParty(props.route.params.item)
         // console.log(props.route.params)
@@ -90,7 +90,7 @@ const SingleParty = (props) => {
     return(
         <>
             <Container style={styles.container}>
-                <ScrollView style={{ paddingBottom:200,  width: '100%' }}>
+                <ScrollView style={{ paddingBottom:80,  width: '100%' }}>
                     <View>
                         <Image
                             source={{
@@ -104,38 +104,32 @@ const SingleParty = (props) => {
                     <View style={styles.contentContainer}>
                         <Heading size='xl' style={styles.contentHeader}>{party.title}</Heading>
                     </View>
-
-                    <Button
-                        title={"Select contact"}
-                        onPress={() => addContact()}
-                        />
                 </ScrollView>
-                <FlatList style={{width:"100%"}} data={users} renderItem={({
+                <FlatList style={{width:"100%"}} data={party.contacts} renderItem={({
                                                                                  item
                                                                              }) =>
-
 
                     <Box borderBottomWidth="1" _dark={{
                         borderColor: "muted.50"
                     }} borderColor="muted.800" pl={["0", "4"]} pr={["0", "5"]} py="2">
-                        <TouchableOpacity onPress={() => setCurrentUser(item.id)}>
+                        <TouchableOpacity >
                             <HStack space={[2, 3]} justifyContent="space-between">
                                 <VStack  style={{  padding: 16 }}>
                                     <Text _dark={{
                                         color: "warmGray.50"
                                     }} color="coolGray.800" bold>
-                                        {item.username}
+                                        {item.name}
                                     </Text>
-                                    <Text color="coolGray.600" _dark={{
-                                        color: "warmGray.200"
-                                    }}>
-                                        {item.email}
-                                    </Text>
+                                    {/*<Text color="coolGray.600" _dark={{*/}
+                                    {/*    color: "warmGray.200"*/}
+                                    {/*}}>*/}
+                                    {/*    {item.email}*/}
+                                    {/*</Text>*/}
                                 </VStack>
                                 <Spacer />
                             </HStack>
                         </TouchableOpacity>
-                    </Box>} keyExtractor={item => item.id} />
+                    </Box>} keyExtractor={item => item.recordID} />
 
             </Container>
 
@@ -176,26 +170,38 @@ const SingleParty = (props) => {
 
 
             <VStack style={styles.bottomContainer} w={"100%"} justifyContent="space-between">
-                    <HStack >
-                         <Text style={styles.price}>asd</Text>
-                    </HStack>
-                    <HStack justifyContent="space-between">
-                        <StyledButton
-                            primary
-                            medium
-                            // onPress={() => {props.addItemToCart(item.id),
-                            //     Toast.show({
-                            //         topOffset: 60,
-                            //         type: "success",
-                            //         text1: `add added to Cart`,
-                            //         text2: "Go to your cart to complete order"
-                            //     })
-                            // }}
-                        >
-                            <Text>yup</Text>
-                        </StyledButton>
-                        <Text style={{ color: 'white'}}>Add</Text>
-                    </HStack>
+                <StyledButton
+                    primary
+                    medium
+                    style={{width:"40%"}}
+                    // onPress={() => {props.addItemToCart(item.id),
+                    //     Toast.show({
+                    //         topOffset: 60,
+                    //         type: "success",
+                    //         text1: `add added to Cart`,
+                    //         text2: "Go to your cart to complete order"
+                    //     })
+                    // }}
+                >
+                    <Text  style={{ color: 'black'}}>Reserve a spot</Text>
+                </StyledButton>
+                <StyledButton
+                    style={{width:"40%"}}
+                    secondary
+                    medium
+                    onPress={() => addContact()}
+                    // onPress={() => {props.addItemToCart(item.id),
+                    //     Toast.show({
+                    //         topOffset: 60,
+                    //         type: "success",
+                    //         text1: `add added to Cart`,
+                    //         text2: "Go to your cart to complete order"
+                    //     })
+                    // }}
+                >
+                    <Text  style={{ color: 'black'}}>Invite someone</Text>
+                </StyledButton>
+
                 </VStack>
 
 
