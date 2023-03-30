@@ -28,7 +28,11 @@ const PartyCard = (props) => {
                     + '...' : title
                 }
             </Text>
-            <Text style={styles.price}>{party_end}</Text>
+            <Text style={styles.price}>
+                {party_end.toString().length > 15 ? party_end.toString().substring(0, 15 - 3)
+                    + '...' : party_end
+                }
+                </Text>
 
             <Text style={{ marginTop: 20 }}>Currently Unavailable</Text>
         </View>

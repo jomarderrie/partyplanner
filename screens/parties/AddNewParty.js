@@ -1,13 +1,16 @@
 import {Button, Container, Pressable, Text} from "native-base";
 import {ActivityIndicator, StyleSheet, View} from "react-native";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import FormContainer from "../shared/FormContainer";
+import uuid from 'react-native-uuid';
 import DatePicker from "react-native-date-picker";
+import CalendarEvents from 'react-native-calendar-events';
 import Input from "../shared/Input";
 import StyledButton from "../../styles/StyledButton";
 import Error from "../shared/Error";
 import {UserContext} from "../../context/UsersContext";
 import {PartyContext} from "../../context/PartysContext";
+import RNCalendarEvents from "react-native-calendar-events";
 
 
 
@@ -19,32 +22,44 @@ const AddNewParty = (props) => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [date, setDate] = useState(new Date())
+    const [startDate, setStartDate] = useState(new Date())
+    const [endDate, setEndDate] = useState(new Date())
     const [open, setOpen] = useState(false)
+    const [openEnd, setOpenEnd] = useState(false)
     const [err, setError] = useState();
 
     const addParty = () => {
-        if (name === "" || date === "" || description === "" || user === "Not logged in"){
+        if (name === "" ||  description === "" || user === "Not logged in"){
             setError("Please fill in the form correctly and check if you are logged in")
         }
         let newParty ={
+            "id": uuid.v4(),
             "title":name,
             "description":description,
-            "party_end":date,
+            "party_start": startDate,
+            "party_end":endDate,
             "createdBy":user,
             "contacts": []
         }
+        RNCalendarEvents.saveEvent(name, {
+            startDate: startDate.toISOString(),
+            endDate: endDate.toISOString()
+        }).then(() =>{
+            setParties((prevParties) => {
+                return [newParty,...prevParties]
+            })
+            setTimeout(() => {
+                props.navigation.navigate("Parties");
+            }, 500)
+        }).catch( )
 
-        setParties((prevParties) => {
-            return [newParty,...prevParties]
-        })
-        setTimeout(() => {
-            props.navigation.navigate("Parties");
-        }, 500)
 
         // partys
-
     }
+    useEffect(() => {
+        RNCalendarEvents.requestPermissions(false);
+
+    }, [])
 
 
     return(
@@ -72,24 +87,44 @@ const AddNewParty = (props) => {
           <Pressable onPress={() => setOpen(true)}>
 
 
-          <View style={styles.label} onPress={() => setOpen(true)}>
-              <Text style={{ textDecorationLine: "underline"}}>Party Date and time Click here</Text>
+          <View style={styles.label} >
+              <Text style={{ textDecorationLine: "underline"}}>Party start Date and time Click here</Text>
           </View>
           </Pressable>
-          <Text>Selected Date: {date ? date.toString(): "Date not selected"}</Text>
+          <Text>Selected Date: {startDate ? startDate.toString(): "Date not selected"}</Text>
           <DatePicker
           modal
           open={open}
-          date={date}
+          date={startDate}
           minimumDate={new Date()}
           onConfirm={(date) => {
               setOpen(false)
-              setDate(date)
+              setStartDate(date)
           }}
           onCancel={() => {
               setOpen(false)
           }}
       />
+          <Pressable onPress={() => setOpenEnd(true)}>
+          <View style={styles.label} >
+              <Text style={{ textDecorationLine: "underline"}}>Party end Date and time Click here</Text>
+          </View>
+      </Pressable>
+    <Text>Selected Date: {endDate ? endDate.toString(): "Date not selected"}</Text>
+    <DatePicker
+        modal
+        open={openEnd}
+        date={endDate}
+        minimumDate={new Date()}
+        onConfirm={(date) => {
+            setOpenEnd(false)
+            setEndDate(date)
+        }}
+        onCancel={() => {
+            setOpenEnd(false)
+        }}
+    />
+
           {err ? <Error message={err} /> : null}
           <View style={styles.buttonContainer}>
               <StyledButton

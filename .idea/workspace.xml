@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29b00c09-8c4d-4158-9110-db97a62d4c54" name="Changes" comment="add party">
+    <list default="true" id="29b00c09-8c4d-4158-9110-db97a62d4c54" name="Changes" comment="add party finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/partyplanner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/partyplanner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/parties/AddNewParty.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/parties/AddNewParty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/parties/PartyCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/parties/PartyCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/parties/PartyContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/parties/PartyContainer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +123,7 @@
       <workItem from="1679394327829" duration="2440000" />
       <workItem from="1679396823613" duration="14328000" />
       <workItem from="1679420413371" duration="38589000" />
-      <workItem from="1679699970838" duration="51898000" />
+      <workItem from="1679699970838" duration="56277000" />
     </task>
     <task id="LOCAL-00001" summary="navbar working">
       <created>1679421921066</created>
@@ -209,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680197678964</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add party finished">
+      <created>1680207106697</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680207106697</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +253,7 @@
     <MESSAGE value="improved styling" />
     <MESSAGE value="invite working" />
     <MESSAGE value="add party" />
-    <option name="LAST_COMMIT_MESSAGE" value="add party" />
+    <MESSAGE value="add party finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="add party finished" />
   </component>
 </project>

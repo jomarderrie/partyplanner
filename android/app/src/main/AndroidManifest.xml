@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ikiddoi.partyplanner">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:tools="http://schemas.android.com/tools" package="com.ikiddoi.partyplanner">
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -6,7 +6,7 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.WRITE_CONTACTS" />
   <uses-permission android:name="android.permission.READ_PROFILE" />
-
+  <uses-permission tools:node="remove" android:name="android.permission.WRITE_CALENDAR" />
   <queries>
     <intent>
       <action android:name="android.intent.action.VIEW"/>

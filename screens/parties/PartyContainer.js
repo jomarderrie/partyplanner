@@ -27,7 +27,7 @@ const PartyContainer = (props) => {
             <HStack  bg="violet.800" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%" alignSelf="stretch" flexDirection={"row"}>
                 <HStack alignItems="center">
                     <Text color="white" fontSize="20" fontWeight="bold">
-                        Upcoming partiesize
+                        Upcoming parties
                     </Text>
                 </HStack>
                 <HStack>
