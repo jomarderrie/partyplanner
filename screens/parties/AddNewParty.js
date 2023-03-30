@@ -1,16 +1,22 @@
 import {Button, Container, Pressable, Text} from "native-base";
 import {ActivityIndicator, StyleSheet, View} from "react-native";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import FormContainer from "../shared/FormContainer";
 import DatePicker from "react-native-date-picker";
 import Input from "../shared/Input";
 import StyledButton from "../../styles/StyledButton";
 import Error from "../shared/Error";
+import {UserContext} from "../../context/UsersContext";
+import {PartyContext} from "../../context/PartysContext";
 
 
 
 
-const AddNewParty = () => {
+const AddNewParty = (props) => {
+    const {user} = useContext(UserContext);
+    const {setParties} = useContext(PartyContext)
+
+
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState(new Date())
@@ -18,9 +24,25 @@ const AddNewParty = () => {
     const [err, setError] = useState();
 
     const addParty = () => {
-        if (name === "" || date === "" || description === ""){
-            setError("Please fill in the form correctly")
+        if (name === "" || date === "" || description === "" || user === "Not logged in"){
+            setError("Please fill in the form correctly and check if you are logged in")
         }
+        let newParty ={
+            "title":name,
+            "description":description,
+            "party_end":date,
+            "createdBy":user,
+            "contacts": []
+        }
+
+        setParties((prevParties) => {
+            return [newParty,...prevParties]
+        })
+        setTimeout(() => {
+            props.navigation.navigate("Parties");
+        }, 500)
+
+        // partys
 
     }
 

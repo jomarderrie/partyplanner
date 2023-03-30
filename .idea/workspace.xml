@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29b00c09-8c4d-4158-9110-db97a62d4c54" name="Changes" comment="add party">
-      <change afterPath="$PROJECT_DIR$/screens/shared/Error.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/parties/AddNewParty.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/parties/AddNewParty.js" afterDir="false" />
     </list>
@@ -117,7 +116,7 @@
       <workItem from="1679394327829" duration="2440000" />
       <workItem from="1679396823613" duration="14328000" />
       <workItem from="1679420413371" duration="38589000" />
-      <workItem from="1679699970838" duration="49335000" />
+      <workItem from="1679699970838" duration="51898000" />
     </task>
     <task id="LOCAL-00001" summary="navbar working">
       <created>1679421921066</created>
@@ -203,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680047025718</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add party">
+      <created>1680197678964</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680197678964</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
