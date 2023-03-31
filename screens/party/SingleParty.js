@@ -1,10 +1,12 @@
 import React, {useContext, useEffect, useState,} from "react";
 import {FlatList, Image, ScrollView, StyleSheet, TouchableOpacity, View} from "react-native";
-import {Box, Button, Container, Heading, HStack, Spacer, Text, VStack} from "native-base";
+import {Box, Button, Container, Heading, HStack, Icon, IconButton, Spacer, Text, VStack} from "native-base";
 import {selectContact} from 'react-native-select-contact';
 import StyledButton from "../../styles/StyledButton";
 import {PartyContext} from "../../context/PartysContext";
 import {UserContext} from "../../context/UsersContext";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import Share from 'react-native-share';
 
 const SingleParty = (props) => {
     const image = null;
@@ -35,6 +37,17 @@ const SingleParty = (props) => {
         //             console.log(e)
         //         }))
     }
+    function sharePartyDetails() {
+        const message = `You are invited to my party on ${party.party_start.toString()} . RSVP to let me know if you can make it!`;
+        const options = {
+            title: 'Share party invitation',
+        };
+
+        Share.open({ message, ...options })
+            .then(() => console.log('Shared successfully'))
+            .catch(error => console.log(`Error sharing: ${error}`));
+    }
+
 
     const addContact = () => {
         return selectContact()
@@ -78,14 +91,10 @@ const SingleParty = (props) => {
             });
     }
     useEffect(() => {
-        // console.log(users, "Users123")
         let partyindex = partys.findIndex(partyItem => party.title === partyItem.title)
         setParty(partys[partyindex])
-        // console.log(JSON.stringify(partys[partyindex]) + " oek")
-        //current item
-        // setParty(props.route.params.item)
-        // console.log(props.route.params)
-        // console.log(props.route.params.item)
+        console.log(partys[partyindex], "atsd")
+
     }, [partys, []]);
     return(
         <>
@@ -111,21 +120,19 @@ const SingleParty = (props) => {
 
                     <Box borderBottomWidth="1" _dark={{
                         borderColor: "muted.50"
-                    }} borderColor="muted.800" pl={["0", "4"]} pr={["0", "5"]} py="2">
+                    }} borderColor="muted.800" pl={["0", "5"]} pr={["0", "5"]} py="2">
                         <TouchableOpacity >
                             <HStack space={[2, 3]} justifyContent="space-between">
-                                <VStack  style={{  padding: 16 }}>
+                                <VStack   w="100%" alignSelf="stretch" flexDirection={"row"} justifyContent="space-between" alignItems="center">
                                     <Text _dark={{
                                         color: "warmGray.50"
                                     }} color="coolGray.800" bold>
                                         {item.name}
                                     </Text>
-                                    {/*<Text color="coolGray.600" _dark={{*/}
-                                    {/*    color: "warmGray.200"*/}
-                                    {/*}}>*/}
-                                    {/*    {item.email}*/}
-                                    {/*</Text>*/}
+
+                                    <IconButton icon={<Icon as={MaterialIcons} name="share" size={30} color="black" onPress={sharePartyDetails}  />} />
                                 </VStack>
+
                                 <Spacer />
                             </HStack>
                         </TouchableOpacity>
@@ -183,7 +190,7 @@ const SingleParty = (props) => {
                     //     })
                     // }}
                 >
-                    <Text  style={{ color: 'black'}}>Reserve a spot</Text>
+                    <Text  style={{ color: 'black'}}>Reserve a spot(not implemented)</Text>
                 </StyledButton>
                 <StyledButton
                     style={{width:"40%"}}

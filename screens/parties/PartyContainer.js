@@ -1,13 +1,6 @@
-import React, {useState, useCallback, useContext, useEffect} from "react";
-import {
-    View,
-    StyleSheet,
-    ActivityIndicator,
-    FlatList,
-    ScrollView,
-    Dimensions
-} from "react-native";
-import {Container, Header, Icon, Item, Input, Text, HStack, IconButton} from "native-base";
+import React, {useContext, useEffect} from "react";
+import {ActivityIndicator, Dimensions, ScrollView, StyleSheet, View} from "react-native";
+import {Container, HStack, Icon, IconButton, Text} from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {UserContext} from "../../context/UsersContext";
 import {PartyContext} from "../../context/PartysContext";
@@ -24,7 +17,7 @@ const PartyContainer = (props) => {
     }, []);
     return(
         <>
-            <HStack  bg="violet.800" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%" alignSelf="stretch" flexDirection={"row"}>
+            <HStack  bg="violet.800" px="1" py="3" justifyContent="space-evenly" alignItems="center" w="100%" alignSelf="stretch" flexDirection={"row"}>
                 <HStack alignItems="center">
                     <Text color="white" fontSize="20" fontWeight="bold">
                         Upcoming parties
@@ -32,7 +25,7 @@ const PartyContainer = (props) => {
                 </HStack>
                 <HStack>
                     <IconButton icon={<Icon as={MaterialIcons} name="add" size={30} color="white" onPress={() =>props.navigation.navigate("Add new party") }/>} />
-                    <IconButton icon={<Icon as={MaterialIcons} name="search" size={30} color="white"  />} />
+                    {/*<IconButton icon={<Icon as={MaterialIcons} name="search" size={30} color="white"  />} />*/}
                 </HStack>
             </HStack>
             {/*<Container style={{width:'100%'}}>*/}

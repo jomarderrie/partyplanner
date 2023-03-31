@@ -4,7 +4,6 @@ import React, {useContext, useEffect, useState} from "react";
 import FormContainer from "../shared/FormContainer";
 import uuid from 'react-native-uuid';
 import DatePicker from "react-native-date-picker";
-import CalendarEvents from 'react-native-calendar-events';
 import Input from "../shared/Input";
 import StyledButton from "../../styles/StyledButton";
 import Error from "../shared/Error";
@@ -36,8 +35,8 @@ const AddNewParty = (props) => {
             "id": uuid.v4(),
             "title":name,
             "description":description,
-            "party_start": startDate,
-            "party_end":endDate,
+            "party_start": startDate.toISOString(),
+            "party_end":endDate.toISOString(),
             "createdBy":user,
             "contacts": []
         }
